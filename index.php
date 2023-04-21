@@ -6,10 +6,10 @@
 define('CONTROLLERS_FOLDER', 'controllers/');
 
 // si no se indica un controlador, este es el controlador que usará
-define('DEFAULT_CONTROLLER', 'comics');
+define('DEFAULT_CONTROLLER', 'index');
 
 // si no se indica una acción, esta acción será la que usará
-define('DEFAULT_ACTION', 'listar');
+define('DEFAULT_ACTION', 'inicio');
 
 //Obtenemos el controlador
 //si el usuario no lo introduce, seleccionamos el de por defecto
