@@ -13,10 +13,18 @@
     </tr>
     <?php foreach ($comics as $comic): ?>
         <tr>
-            <td> <?php echo $comics['titulo'] ?></td>
-            <td> <?php echo $comic['referencia']?>) ?></td>
+            <td> <?php echo $comic['title'] ?></td>
+            <td> <?php echo $comic['reference']?></td>
         </tr>
     <?php endforeach; ?>
+
+<?php //    foreach ($comics as $comic) {
+//    echo "<tr>";
+//        echo '<td>' . $comic['title'] . '</td>';
+//        echo '<td>' . $comic['reference'] . '</td>';
+//        echo "</tr>";
+//    } ?>
+
 </table>
 </body>
 </html>
