@@ -18,6 +18,10 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
 //    $password = self::cryptconmd5($password); //encriptamos la clave por medio de la funcion cryptconmd5
       // guardamos los datos en la base de datos
       try {
+          $salt = md5($pass."%*4!#$;.k~’(_@");
+          $pass = md5($salt.$pass.$salt);
+//          return $pass;
+
           $stmt = $dbh->prepare("INSERT INTO users (username, email, pass) VALUES (:username,:email, :pass)");
           $stmt->bindParam(':username', $username, PDO::PARAM_STR);
           $stmt->bindParam(':email', $email, PDO::PARAM_STR);
@@ -26,7 +30,31 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
       } catch (PDOException $e) {
           echo "ERROR: " . $e->getMessage();
       }
-        header('Location: ./index.php');
+//        header('Location: index.php');
+    }
+
+    /**
+     * Función para verificar que existe el usuario y la contraseña
+     */
+    function verifyLogin($username, $pass) {
+        $dbh = getConnection(); //Creamos la conexión a la BBDD
+
+//        $salt = md5($pass."%*4!#$;.k~’(_@");
+//        $pass = md5($salt.$pass.$salt);
+
+        $stmt = $dbh->prepare("SELECT * FROM users WHERE username=:username AND $pass=:pass"); //Buscamos por usuario y contraseña
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($user != null){
+            echo "Usuario Valido";
+            header('Location: index_listarComics.php');
+        }else{
+            echo "Error Validación";
+        }
+
     }
 
     /**
