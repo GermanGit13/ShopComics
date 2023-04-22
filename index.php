@@ -1,7 +1,7 @@
 <?php
 //La carpeta donde buscaremos los controladores
 //define: se usa para definir una constante en tiempo de ejecucion
-//const: se usa para definirla en tiempo que se declara
+//const: se usa para definirla en tiempo que se declara1
 //preferible usar define
 define('CONTROLLERS_FOLDER', 'controllers/');
 

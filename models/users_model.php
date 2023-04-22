@@ -13,21 +13,29 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
      * Función para dar de alta un usuario
      */
     function addUser($username, $email, $pass) {
-    $dbh = getConnection(); //Creamos la conexión a la BBDD
+        $dbh = getConnection(); //Creamos la conexión a la BBDD
 
-      // guardamos los datos en la base de datos
-      try {
-          $passHash = password_hash($pass, PASSWORD_DEFAULT); //encriptamos la contraseña con la funcion password_hash
+        $stmt = $dbh->prepare("SELECT username From users WHERE username=:username ");
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-          $stmt = $dbh->prepare("INSERT INTO users (username, email, pass) VALUES (:username,:email, :pass)");
-          $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-          $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-          $stmt->bindParam(':pass', $passHash, PDO::PARAM_STR);
-          $stmt->execute();
-      } catch (PDOException $e) {
-          echo "ERROR: " . $e->getMessage();
-      }
-        header('Location: index.php');
+        if($user != null) {
+            echo "<script>alert('Username ya registrado en la BBDD');</script>";
+        } else {
+            try {
+                $passHash = password_hash($pass, PASSWORD_DEFAULT); //encriptamos la contraseña con la funcion password_hash
+
+                $stmt = $dbh->prepare("INSERT INTO users (username, email, pass) VALUES (:username,:email, :pass)");
+                $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+                $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+                $stmt->bindParam(':pass', $passHash, PDO::PARAM_STR);
+                $stmt->execute();
+            } catch (PDOException $e) {
+                echo "ERROR: " . $e->getMessage();
+            }
+            header('Location: index.php');
+        }
     }
 
     /**
@@ -41,14 +49,14 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $passUserBBDD = $user['pass']; //Pasamos a texto plano la contraseña que recibimos del usuario que hemos buscado en la BBDD para poder usaral en password_verify
-
 //        $msg=(password_verify($pass, $passUserBBDD)) ? "Todo bien" : "Algo falló";
 //        echo $msg;
 //        echo $user['pass'];
 //        echo $passUserBBDD;
 //        echo $pass;
         if($user != null){
+            $passUserBBDD = $user['pass']; //Pasamos a texto plano la contraseña que recibimos del usuario que hemos buscado en la BBDD para poder usaral en password_verify
+
             if(password_verify($pass, $passUserBBDD)) {
                 session_start();          //Iniciamos la sesión para luego recuperarla
                 $_SESSION['id']=$user['id']; //añadimos el id
@@ -62,7 +70,8 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
 //            header('Location: index_registar.php');
             }
         } else {
-            echo "Usuario no existe en la BBDD";
+            echo "<script>alert('Usuario y Contraseña no existen');</script>";
+//            echo "<div style='color:red'>Usuario o contraseña invalido </div>";
 //            header('Location: index_registar.php');
         }
 
