@@ -1,20 +1,6 @@
 <?php
-//$dbname = "shopcomics";
-//$user = "root";
-//$password = "";
-//$server = 'localhost';
-//$dbh ="";
-//
-//// Con un array de opciones
-//try {
-//    $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
-//    $dbh = new PDO($dsn, $user, $password);
-//    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    echo "Conexión realizada con éxito !!!";
-//} catch (PDOException $e) {
-//    echo $e->getMessage();
-//}
 
+//Creamos una funcion para conectarnos a la BBDD con los parametros y devolvemos la conexion
 function getConnection() {
 
     $dbname = "shopcomics";
@@ -28,8 +14,8 @@ function getConnection() {
         $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Conexion realizada con Exito !";
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+    return $dbh;
 }

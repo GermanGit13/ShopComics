@@ -29,7 +29,7 @@
                                     <h4 class="mt-1 mb-5 pb-1">Accede a nuestra Tienda Online</h4>
                                 </div>
 
-                                <form>
+                                <form action="" method="post">
 <!--                                    <p>Introduce tu usuario para continuar</p>-->
 
                                     <div class="form-outline mb-4">
@@ -44,14 +44,15 @@
                                     </div>
 
                                     <div class="text-center pt-1 mb-5 pb-1">
-                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Iniciar Sesión</button>
+                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submitEntrar">Iniciar Sesión</button>
 <!--                                        <a class="text-muted" href="#!">Forgot password?</a>-->
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">No tienes cuenta?</p>
 <!--                                        <button type="button" class="btn btn-outline-danger">Darse de Alta</button>-->
-                                        <a href="./registrar_view.php" class="btn btn-outline-danger" type="button">Darse de Alta</a>
+<!--                                        <a href="../views/registrar_view.php" class="btn btn-outline-danger" type="button">Darse de Alta</a>-->
+                                        <a href="../index_registar.php" class="btn btn-outline-danger" type="button">Darse de Alta</a>
                                     </div>
 
                                 </form>
