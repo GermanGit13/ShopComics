@@ -1,4 +1,12 @@
 <?php
+//session_start();
+if(!isset($_SESSION['username']))
+{
+    echo "No hay sesión activa";
+
+}else{
+    echo "Sesion Activa: " .$_SESSION['username'] .$_SESSION['rol'] .$_SESSION['id'];
+}
 include 'views/header.php'; //se lo pasamos a la vista especifica
 ?>
 <body>

@@ -1,4 +1,5 @@
 <?php
+session_start(); //Iniciamos la sesión para luego recuperarla desde las view
 //La carpeta donde buscaremos los controladores
 //define: se usa para definir una constante en tiempo de ejecucion
 //const: se usa para definirla en tiempo que se declara
