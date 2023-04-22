@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <!--    <a href="pages/logout.php">Cerrar Sesión</a>-->
     <!-- Para usar la hoja de estilos de  Bootstrap -->

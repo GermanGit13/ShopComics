@@ -19,3 +19,4 @@ function getConnection() {
     }
     return $dbh;
 }
+?>

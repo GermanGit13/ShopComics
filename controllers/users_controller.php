@@ -1,5 +1,5 @@
 <?php
-
+ob_start(); //no me redirigía los header sin esta función
 //Aqui van todas las acciones que queremos hacer sobre los comics
 function inicio()
 {
@@ -51,6 +51,7 @@ function login(){
         }
     }
 }
+?>
 
 
 

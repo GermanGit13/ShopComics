@@ -38,3 +38,4 @@ if (is_callable($action))
     $action();
 else
     die ('La accion no existe - 404 not found');
+?>

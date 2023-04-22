@@ -43,4 +43,5 @@ function getComics() {
 //        return $comics;
 //    }
 }
+?>
 

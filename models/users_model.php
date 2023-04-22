@@ -1,4 +1,5 @@
 <?php
+
 require './db/connect-db.php'; //se lo pasamos a la vista especifica
 
 //function getConnection() {
@@ -49,9 +50,10 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user != null){
-            echo "Usuario Valido";
             header('Location: index_listarComics.php');
+            echo "Usuario Valido";
         }else{
+            header('Location: index_registar.php');
             echo "Error Validación";
         }
 
