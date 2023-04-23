@@ -44,5 +44,32 @@ function getComics() {
 //        return $comics;
 //    }
 }
+
+//Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros por el idCategory
+function getComicsByCategory($idCategory) {
+
+    $db = getConnection();
+    $query = ('SELECT * FROM comics WHERE idCategory = ?');
+    $stmt = $db->prepare($query);
+    $stmt -> execute(array($idCategory));
+
+    return $comics = $stmt->fetchAll(PDO::FETCH_ASSOC); //metemos en la variable comics array  asociativo
+}
+
+//Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros por el idCategory
+function deleteComics($idComic) {
+
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare("SELECT * FROM comics WHERE id=:id"); //Buscamos por usuario
+        $stmt->bindParam(':id', $idComic, PDO::PARAM_STR);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+    echo "<script>alert('Usuario y Contraseña no existen');</script>";
+    header("Location: view.php");
+}
+?>
 ?>
 

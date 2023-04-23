@@ -63,7 +63,7 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
                 $_SESSION['username']=$user['username']; //añadimos el username
                 $_SESSION['rol']=$user['rol']; //añadimos el rol
 
-                header('Location: index_listarComics.php');
+                header('Location: index_listarCategory.php');
                 echo "Contraseña Valida";
             } else{
                 echo "La contraseña no es correcta";

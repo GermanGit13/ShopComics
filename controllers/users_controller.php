@@ -9,7 +9,7 @@ function inicio()
 
 function registar(){
 
-    include('./views/user_registar.php');
+    include('./views/user_registar_view.php');
     // Comprueba si el formulario ha sido enviado.
     // Si se ha enviado, comienza el proceso el formulario y guarda los datos en la BBDD
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
