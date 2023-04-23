@@ -11,18 +11,33 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
 ?>
 <body>
 <h1>Comics en nuestra tienda</h1>
-<table border="1">
-    <tr>
+<!--<table border="1">-->
+<!--    <tr>-->
+<!---->
+<!--        <th>TITULO</th>-->
+<!--        <th>REFERENCIA</th>-->
+<!--    </tr>-->
+<!--    --><?php //foreach ($comics as $comic): ?>
+<!--        <tr>-->
+<!--            <td> --><?php //echo $comic['title'] ?><!--</td>-->
+<!--            <td> --><?php //echo $comic['reference']?><!--</td>-->
+<!--        </tr>-->
+<!--    --><?php //endforeach; ?>
+<!--</table>-->
 
-        <th>TITULO</th>
-        <th>REFERENCIA</th>
-    </tr>
     <?php foreach ($comics as $comic): ?>
-        <tr>
-            <td> <?php echo $comic['title'] ?></td>
-            <td> <?php echo $comic['reference']?></td>
-        </tr>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $comic['title'] ?></h5>
+                <p class="card-text"><?php echo $comic['description'] ?></p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
     <?php endforeach; ?>
-</table>
+
+
 </body>
 </html>
