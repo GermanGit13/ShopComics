@@ -17,5 +17,22 @@ function getCategory() {
 //        return $comics;
 //    }
 }
+
+/**
+ * Función para dar de alta un usuario
+ */
+function addCategory($category, $img) {
+    $dbh = getConnection(); //Creamos la conexión a la BBDD
+
+        try {
+            $stmt = $dbh->prepare("INSERT INTO category (category, img) VALUES (:category, :img)");
+            $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+            $stmt->bindParam(':img', $img, PDO::PARAM_STR);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+        header('Location: index_listarCategory.php');
+}
 ?>
 

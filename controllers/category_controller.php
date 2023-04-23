@@ -11,6 +11,28 @@ function listar() {
     include 'views/category_listar_view.php'; //se lo pasamos a la vista especifica
 }
 
+function registar(){
+
+    include('./views/category_registar_view.php');
+    // Comprueba si el formulario ha sido enviado.
+    // Si se ha enviado, comienza el proceso el formulario y guarda los datos en la BBDD
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Obtenemos los datos del formulario, nos aseguramos que son validos. Está en el ejemplo completo PDO
+        $category = htmlspecialchars($_POST['category']);
+        $img = htmlspecialchars($_POST['img']);
+
+        // Comprueba que todos campos han sido introducidos
+        if ($category == '' || $img == '') {
+            // Genera el mensaje de error
+            $error = 'ERROR: Por favor, introduce todos los campos requeridos.!';
+
+        } else {
+            require_once ('./models/category_model.php');
+            $category = addCategory($category, $img);
+        }
+    }
+}
+
 //function ver() {
 //    if (!isset ($GET ['id']))
 //        die("No has especificado un identificador de products");

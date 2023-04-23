@@ -38,4 +38,4 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
 
 
 </body>
-</html>
+

@@ -30,13 +30,13 @@ if(!isset($_SESSION['username']))
     <nav class="navbar bg-dark" data-bs-theme="dark">
         <div class="container text-center">
             <div class="row">
-                <div class="col">
-                    <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Inicio</a>
-                </div>
+<!--                <div class="col">-->
+<!--                    <a href="../index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Inicio</a>-->
+<!--                </div>-->
     <!--Controlar el rol con if-->
     <?php if ($_SESSION['rol'] == "admin"): ?>
                 <div class="col">
-                    <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Añadir nueva categoria</a>
+                    <a href="../index_category_registar.php" class="btn btn-sm btn-outline-secondary" type="button">Añadir nueva categoria</a>
                 </div>
                 <div class="col">
                     <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Listar todas las Ventas</a>

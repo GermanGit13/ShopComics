@@ -18,7 +18,7 @@ function listarComicsByCategoria() {
     $idCategory = $_GET['idCategory'];
 
     //Se incluye el modelo que corresponde
-    require 'models/comics_model.php';
+    require_once 'models/comics_model.php';
     //Le pide al modelo todos los comics
     $comics = getComicsByCategory($idCategory); //funcion creada dentro de comics_model.php
     //Pasa a la vista toda la informacion que se desea representar
@@ -32,7 +32,7 @@ function deleteComic() {
     $idComic = $_GET['id'];
 
     //Se incluye el modelo que corresponde
-    require 'models/comics_model.php';
+    require_once 'models/comics_model.php';
     //Le pide al modelo todos los comics
     $comics = deleteComics($idComic); //funcion creada dentro de comics_model.php
     //Pasa a la vista toda la informacion que se desea representar
