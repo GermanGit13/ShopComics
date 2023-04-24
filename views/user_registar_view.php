@@ -51,7 +51,7 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
 
                                     <div class="text-center pt-1 mb-5 pb-1">
 <!--                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Iniciar Sesión</button>-->
-                                        <input class="btn btn-primary" type='submit' name='submitRegister' value='Registrarse'>
+                                        <input class="btn btn-primary" type='submit' name='submitRegister' onclick="return confirm('¿Bienvenido, inicia sesión y empieza a disfrutar.')" value='Registrarse'>
                                         <a href="index.php" class="btn btn-danger" type="button">Cancelar</a>
 
                                     </div>

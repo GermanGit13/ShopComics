@@ -7,7 +7,7 @@ session_start(); //Iniciamos la sesión para luego recuperarla desde las view
 define('CONTROLLERS_FOLDER', 'controllers/');
 
 // si no se indica un controlador, este es el controlador que usará
-define('DEFAULT_CONTROLLER', 'category');
+define('DEFAULT_CONTROLLER', 'comics');
 
 // si no se indica una acción, esta acción será la que usará
 define('DEFAULT_ACTION', 'registar');

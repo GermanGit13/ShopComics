@@ -52,4 +52,38 @@ function ver() {
     //Pasamos a la vista toda la informacion que se desea representar
     include ('views/products_ver.php');
 }
+
+function registar(){
+
+    require ('./views/comics_registrar_view.php');
+////    recoger el id de la categoria
+//    if (!isset ($_GET ['id']))
+//        die("No has especificado un identificador de products");
+//    $idCategoria = $_GET ['id'];
+
+    // Comprueba si el formulario ha sido enviado.
+    // Si se ha enviado, comienza el proceso el formulario y guarda los datos en la BBDD
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Obtenemos los datos del formulario, nos aseguramos que son validos. Está en el ejemplo completo PDO
+        $title = htmlspecialchars($_POST['title']);
+        $reference = htmlspecialchars($_POST['reference']);
+        $author = htmlspecialchars($_POST['author']);
+        $description = htmlspecialchars($_POST['description']);
+        $formate = htmlspecialchars($_POST['formate']);
+        $page = htmlspecialchars($_POST['page']);
+        $price = htmlspecialchars($_POST['price']);
+        $img = htmlspecialchars($_POST['img']);
+        $idCategory = htmlspecialchars($_POST['idCategory']);
+
+        // Comprueba que todos campos han sido introducidos
+        if ($title == '' || $img == ''|| $idCategory == '') {
+            // Genera el mensaje de error
+            $error = 'ERROR: Por favor, introduce todos los campos requeridos.!';
+
+        } else {
+            require_once ('./models/comics_model.php');
+            $comics = addComics($title, $reference, $author, $description, $formate, $page, $price, $img, $idCategory);
+        }
+    }
+}
 ?>

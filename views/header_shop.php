@@ -21,18 +21,27 @@ if(!isset($_SESSION['username']))
     <!--FIN incrustar las fuente desde google-->
 
     <nav class="navbar navbar-dark bg-dark">
-        <img src="/img/logoComics.png" alt="Logo" width="650" height="150" class="d-inline-block align-text-top">
-        <a class="navbar-brand" href="#">
-            <h4> Bienvenido a nuestra Tienda de Comics: <?php echo $_SESSION['username']?></h4>
-        </a>
+        <img src="/img/header.png" alt="Logo" width="650" height="150" class="d-inline-block align-text-top">
+<!--        <a class="navbar-brand" href="#">-->
+<!--            <h4> Bienvenido a la Tienda: --><?php //echo $_SESSION['username']?><!--</h4>-->
+<!--        </a>-->
+        <img src="/img/C.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
+        <img src="/img/O.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
+        <img src="/img/M.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
+        <img src="/img/i.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
+        <img src="/img/C.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
+        <img src="/img/S.png" alt="Logo" width="125" height="75" class="d-inline-block align-text-top">
     </nav>
 
     <nav class="navbar bg-dark" data-bs-theme="dark">
         <div class="container text-center">
             <div class="row">
-<!--                <div class="col">-->
-<!--                    <a href="../index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Inicio</a>-->
-<!--                </div>-->
+                <div class="col">
+                    <a href="./index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Inicio</a>
+                </div>
+                <div class="col">
+                    <a href="./index_listarComics.php" class="btn btn-sm btn-outline-secondary" type="button">Ver todos los Cómics</a>
+                </div>
     <!--Controlar el rol con if-->
     <?php if ($_SESSION['rol'] == "admin"): ?>
                 <div class="col">
@@ -42,6 +51,7 @@ if(!isset($_SESSION['username']))
                     <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Listar todas las Ventas</a>
                 </div>
     <?php endif; ?>
+                <h4 style="color: aliceblue"> Bienvenido a la Tienda: <?php echo $_SESSION['username']?></h4>
     <!--FIN Controlar el rol con if-->
             </div>
         </div>

@@ -1,5 +1,8 @@
 <?php
 include 'views/header.php'; //se lo pasamos a la vista especifica
+if (!isset ($_GET ['id']))
+    die("No has especificado un identificador de products");
+$idCategoria = $_GET ['id'];
 ?>
 
 <body>
@@ -16,22 +19,57 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
                                 <div class="text-center">
                                     <img src="../img/logoSmall.png"
                                          style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Crear nueva categoria</h4>
+                                    <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics: <?php echo $idCategoria ?></h4>
                                 </div>
 
                                 <form method="post" id="formulario">
                                     <div class="form-outline mb-4">
-                                        <input type="text" name="category" class="form-control" />
-                                        <label class="form-label" for="form2Example11">Nombre de Categoria</label>
+                                        <input type="text" name="title" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Titulo</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="reference" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Referencia</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="author" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Autor</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="publisher" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Editorial</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="reference" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Referencia</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="description" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Descripción</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="formate" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Formato</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="page" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Número Páginas</label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="price" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Precio</label>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <input type="text" name="img" class="form-control" />
-                                        <label class="form-label" for="form2Example11">Url para foto</label>
+                                        <label class="form-label" for="form2Example11">Url Imagen</label>
                                     </div>
-
+                                    <div class="form-outline mb-4">
+                                        <input type="text" name="idCategory" class="form-control" />
+                                        <label class="form-label" for="form2Example11">Categoria</label>
+                                    </div>
                                     <div class="text-center pt-1 mb-5 pb-1">
 <!--                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Iniciar Sesión</button>-->
-                                        <input class="btn btn-primary" type='submit' name='submitRegister' onclick="return confirm('¿Realmente desea eliminar?')" value='Registrar Categoría'>
+                                        <input class="btn btn-primary" type='submit' name='submitRegister' onclick="return confirm('¿Realmente desea añadir un nuevo comic?')" value='Registrar Categoría'>
                                         <a href="./index_listarCategory.php" class="btn btn-danger" type="button">Cancelar</a>
 
                                     </div>
@@ -54,7 +92,7 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 
                                 <div class="d-flex align-items-center justify-content-center pb-4">
-                                    <img src="/img/addCategory.png"
+                                    <img src="/img/addComic.png"
                                 </div>
                             </div>
                         </div>

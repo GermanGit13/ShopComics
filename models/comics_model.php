@@ -28,7 +28,9 @@ require './db/connect-db.php'; //se lo pasamos a la vista especifica
 //    }
 //}
 
-//Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros
+/**
+ * Función para listar todos los comics
+ */
 function getComics() {
 
     $db = getConnection();
@@ -45,7 +47,10 @@ function getComics() {
 //    }
 }
 
-//Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros por el idCategory
+/**
+ * Función para listar comics por categoria
+ * Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros por el idCategory
+ */
 function getComicsByCategory($idCategory) {
 
     $db = getConnection();
@@ -56,19 +61,46 @@ function getComicsByCategory($idCategory) {
     return $comics = $stmt->fetchAll(PDO::FETCH_ASSOC); //metemos en la variable comics array  asociativo
 }
 
-//Recoje la conexión  lanzar un select a la BBDD para devolver un array de libros por el idCategory
+/**
+ * Función para borrar comics por id
+ */
 function deleteComics($idComic) {
+    $db = getConnection();
 
     try {
-        $db = getConnection();
-        $stmt = $db->prepare("SELECT * FROM comics WHERE id=:id"); //Buscamos por usuario
+        $stmt = $db->prepare("DELETE FROM comics WHERE id=:id"); //Buscamos por usuario
         $stmt->bindParam(':id', $idComic, PDO::PARAM_STR);
         $stmt->execute();
     } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
     }
-    echo "<script>alert('Usuario y Contraseña no existen');</script>";
     header("Location: index_listarCategory.php");
+}
+
+/**
+ * Función para dar de alta un comics
+ */
+function addComics($title, $reference, $author, $publisher, $description, $formate, $page, $price, $img, $idCategory) {
+    $dbh = getConnection(); //Creamos la conexión a la BBDD
+
+    try {
+        $stmt = $dbh->prepare("INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES (:title, :reference, :author, :publisher, :description, :formate, :page, :price, :img, :idCategory)");
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':reference', $reference, PDO::PARAM_STR);
+        $stmt->bindParam(':author', $author, PDO::PARAM_STR);
+        $stmt->bindParam(':publisher', $publisher, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':formate', $formate, PDO::PARAM_STR);
+        $stmt->bindParam(':page', $page, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+        $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+        $stmt->bindParam(':img', $img, PDO::PARAM_STR);
+        $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_STR);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+    header('Location: index_listarCategory.php');
 }
 ?>
 
