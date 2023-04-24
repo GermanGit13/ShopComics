@@ -68,8 +68,7 @@ function deleteComics($idComic) {
         echo "ERROR: " . $e->getMessage();
     }
     echo "<script>alert('Usuario y Contraseña no existen');</script>";
-    header("Location: view.php");
+    header("Location: index_listarCategory.php");
 }
-?>
 ?>
 

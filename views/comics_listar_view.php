@@ -27,7 +27,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
                     <a href="" class="btn btn-primary">Detalles</a>
                     <?php if ($_SESSION['rol'] == "admin"): ?>
                     <a href="" class="btn btn-warning">Modificar</a>
-                    <a href="../index_deleteComics.php?id=<?php echo $comic['id'] ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="./index_deleteComics.php?id=<?php echo $comic['id'] ?>" class="btn btn-danger">Eliminar</a>
                     <?php endif; ?>
                 </div>
             </div>

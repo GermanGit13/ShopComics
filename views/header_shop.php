@@ -36,7 +36,7 @@ if(!isset($_SESSION['username']))
     <!--Controlar el rol con if-->
     <?php if ($_SESSION['rol'] == "admin"): ?>
                 <div class="col">
-                    <a href="../index_category_registar.php" class="btn btn-sm btn-outline-secondary" type="button">Añadir nueva categoria</a>
+                    <a href="./index_category_registar.php" class="btn btn-sm btn-outline-secondary" type="button">Añadir nueva categoria</a>
                 </div>
                 <div class="col">
                     <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Listar todas las Ventas</a>

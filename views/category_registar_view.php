@@ -31,8 +31,8 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
 
                                     <div class="text-center pt-1 mb-5 pb-1">
 <!--                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Iniciar Sesión</button>-->
-                                        <input class="btn btn-primary" type='submit' name='submitRegister' value='Registrarse'>
-                                        <a href="../index_listarCategory.php" class="btn btn-danger" type="button">Cancelar</a>
+                                        <input class="btn btn-primary" type='submit' name='submitRegister' value='Registrar Categoría'>
+                                        <a href="./index_listarCategory.php" class="btn btn-danger" type="button">Cancelar</a>
 
                                     </div>
                                 </form>
@@ -42,7 +42,7 @@ include 'views/header.php'; //se lo pasamos a la vista especifica
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 
                                 <div class="d-flex align-items-center justify-content-center pb-4">
-                                    <img src="/img/registro.png"
+                                    <img src="/img/addCategory.png"
                                 </div>
                             </div>
                         </div>
