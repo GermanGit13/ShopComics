@@ -1,8 +1,13 @@
 <?php
 include 'views/header.php'; //se lo pasamos a la vista especifica
-if (!isset ($_GET ['id']))
-    die("No has especificado un identificador de products");
-$idCategoria = $_GET ['id'];
+include 'db/connect-dbCategory.php'; //incluimos los datos de conexion
+if (!isset ($_GET ['idCategory']))
+    die("No se ha seleccionado ningún id de Category");
+$idCategoria = $_GET['idCategory'];
+$dbh = getConnectionIdCategory();
+$consulta = $dbh->prepare("SELECT * FROM category WHERE id=$idCategoria"); //buscamos por id
+$consulta->execute();
+$OneIdCategory = $consulta->fetch();
 ?>
 
 <body>
@@ -19,7 +24,7 @@ $idCategoria = $_GET ['id'];
                                 <div class="text-center">
                                     <img src="../img/logoSmall.png"
                                          style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics: <?php echo $idCategoria ?></h4>
+                                    <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics a la catergoria: <?php echo $OneIdCategory['category'] ?></h4>
                                 </div>
 
                                 <form method="post" id="formulario">
@@ -38,10 +43,6 @@ $idCategoria = $_GET ['id'];
                                     <div class="form-outline mb-4">
                                         <input type="text" name="publisher" class="form-control" />
                                         <label class="form-label" for="form2Example11">Editorial</label>
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="reference" class="form-control" />
-                                        <label class="form-label" for="form2Example11">Referencia</label>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <input type="text" name="description" class="form-control" />
@@ -64,12 +65,13 @@ $idCategoria = $_GET ['id'];
                                         <label class="form-label" for="form2Example11">Url Imagen</label>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input type="text" name="idCategory" class="form-control" />
-                                        <label class="form-label" for="form2Example11">Categoria</label>
+                                        <input type="text" readonly name="idCategory" class="form-control"  value="<?php echo $OneIdCategory['id'] ?>"/>
+                                        <label class="form-label" for="form2Example11" >Categoria</label>
+
                                     </div>
                                     <div class="text-center pt-1 mb-5 pb-1">
 <!--                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Iniciar Sesión</button>-->
-                                        <input class="btn btn-primary" type='submit' name='submitRegister' onclick="return confirm('¿Realmente desea añadir un nuevo comic?')" value='Registrar Categoría'>
+                                        <input class="btn btn-primary" type='submit' name='submitRegister' onclick="return confirm('¿Realmente desea añadir un nuevo comic?')" value='Registrar Comics'>
                                         <a href="./index_listarCategory.php" class="btn btn-danger" type="button">Cancelar</a>
 
                                     </div>
@@ -92,7 +94,7 @@ $idCategoria = $_GET ['id'];
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 
                                 <div class="d-flex align-items-center justify-content-center pb-4">
-                                    <img src="/img/addComic.png"
+                                    <img src="./img/addComic.png"
                                 </div>
                             </div>
                         </div>

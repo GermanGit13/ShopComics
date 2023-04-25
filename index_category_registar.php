@@ -10,7 +10,7 @@ define('CONTROLLERS_FOLDER', 'controllers/');
 define('DEFAULT_CONTROLLER', 'category');
 
 // si no se indica una acción, esta acción será la que usará
-define('DEFAULT_ACTION', 'registar');
+define('DEFAULT_ACTION', 'registarCategory');
 
 //Obtenemos el controlador
 //si el usuario no lo introduce, seleccionamos el de por defecto

@@ -1,8 +1,8 @@
 <?php
 ob_start(); //no me redirigía los header sin esta función
 //Aqui van todas las acciones que queremos hacer sobre las categorias
-function listar() {
 
+function listarCategory() {
     //Se incluye el modelo que corresponde
     require 'models/category_model.php';
     //Le pide al modelo todos los comics
@@ -11,7 +11,8 @@ function listar() {
     include 'views/category_listar_view.php'; //se lo pasamos a la vista especifica
 }
 
-function registar(){
+function registarCategory(){
+
 
     include('./views/category_registar_view.php');
     // Comprueba si el formulario ha sido enviado.
@@ -33,17 +34,15 @@ function registar(){
     }
 }
 
-//function ver() {
-//    if (!isset ($GET ['id']))
-//        die("No has especificado un identificador de products");
-//    $id = $GET ['id'];
+//function verCategory($idCategory) {
+////    if (!isset ($GET ['id']))
+////        die("No has especificado un identificador de products");
+////    $idCategory = $GET ['id'];
 //    //Incluimos el modelo correspondiente
-//    require 'models/comics_model.php';
+//    require 'models/category_model.php';
 //    //Le pedimos al modelo el comic con id = $id
-//    $comic = getComics($id);
-//    if ($comic == null)
-//        die('Identificador del comic incorrecto');
-//    //Pasamos a la vista toda la informacion que se desea representar
-//    include ('views/products_ver.php');
+//    $OneIdCategory = getIdCategory($idCategory);
+//    if ($OneIdCategory == null)
+//        die('Identificador de la Categoria es incorrecto estamos aqui');
 //}
 ?>

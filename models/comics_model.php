@@ -93,7 +93,6 @@ function addComics($title, $reference, $author, $publisher, $description, $forma
         $stmt->bindParam(':formate', $formate, PDO::PARAM_STR);
         $stmt->bindParam(':page', $page, PDO::PARAM_STR);
         $stmt->bindParam(':price', $price, PDO::PARAM_STR);
-        $stmt->bindParam(':category', $category, PDO::PARAM_STR);
         $stmt->bindParam(':img', $img, PDO::PARAM_STR);
         $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_STR);
         $stmt->execute();

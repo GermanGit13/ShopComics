@@ -1,8 +1,8 @@
 <?php
 ob_start(); //no me redirigía los header sin esta función
 //Aqui van todas las acciones que queremos hacer sobre los comics
-function listar() {
 
+function listar() {
     //Se incluye el modelo que corresponde
     require 'models/comics_model.php';
     //Le pide al modelo todos los comics
@@ -50,13 +50,13 @@ function ver() {
     if ($comic == null)
         die('Identificador del comic incorrecto');
     //Pasamos a la vista toda la informacion que se desea representar
-    include ('views/products_ver.php');
+    include 'views/products_ver.php';
 }
 
 function registar(){
 
-    require ('./views/comics_registrar_view.php');
-////    recoger el id de la categoria
+    include('views/comics_registar_view.php');
+//    recoger el id de la categoria
 //    if (!isset ($_GET ['id']))
 //        die("No has especificado un identificador de products");
 //    $idCategoria = $_GET ['id'];
@@ -68,6 +68,7 @@ function registar(){
         $title = htmlspecialchars($_POST['title']);
         $reference = htmlspecialchars($_POST['reference']);
         $author = htmlspecialchars($_POST['author']);
+        $publisher = htmlspecialchars($_POST['publisher']);
         $description = htmlspecialchars($_POST['description']);
         $formate = htmlspecialchars($_POST['formate']);
         $page = htmlspecialchars($_POST['page']);
@@ -81,8 +82,11 @@ function registar(){
             $error = 'ERROR: Por favor, introduce todos los campos requeridos.!';
 
         } else {
-            require_once ('./models/comics_model.php');
-            $comics = addComics($title, $reference, $author, $description, $formate, $page, $price, $img, $idCategory);
+//            require '/models/category_model.php';
+//            $OneIdCategory = verCategory($idCategory);
+            require './models/comics_model.php';
+            $comics = addComics($title, $reference, $author, $publisher, $description, $formate, $page, $price, $img, $idCategory);
+
         }
     }
 }
