@@ -20,7 +20,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
                     <a href="./index_listarComicsCategory.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-primary">Ver Comics</a>
                     <?php if ($_SESSION['rol'] == "admin"): ?>
                     <a href="./index_comics_registar.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-warning">Añadir Comics</a>
-                    <a href="#" class="btn btn-danger">Eliminar</a>
+<!--                    <a href="#" class="btn btn-danger">Eliminar</a>-->
                     <?php endif; ?>
                 </div>
             </div>

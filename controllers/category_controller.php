@@ -34,15 +34,5 @@ function registarCategory(){
     }
 }
 
-//function verCategory($idCategory) {
-////    if (!isset ($GET ['id']))
-////        die("No has especificado un identificador de products");
-////    $idCategory = $GET ['id'];
-//    //Incluimos el modelo correspondiente
-//    require 'models/category_model.php';
-//    //Le pedimos al modelo el comic con id = $id
-//    $OneIdCategory = getIdCategory($idCategory);
-//    if ($OneIdCategory == null)
-//        die('Identificador de la Categoria es incorrecto estamos aqui');
-//}
+
 ?>

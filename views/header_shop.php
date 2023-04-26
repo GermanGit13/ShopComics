@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']))
                     <a href="./index_category_registar.php" class="btn btn-sm btn-outline-secondary" type="button">Añadir nueva categoria</a>
                 </div>
                 <div class="col">
-                    <a href="AP2_German_Rodriguez/index_listarCategory.php" class="btn btn-sm btn-outline-secondary" type="button">Listar todas las Ventas</a>
+                    <a href="./index_listarFacturas.php" class="btn btn-sm btn-outline-secondary" type="button">Listar todas las Ventas</a>
                 </div>
     <?php endif; ?>
                 <h4 style="color: aliceblue"> Bienvenido a la Tienda: <?php echo $_SESSION['username']?></h4>

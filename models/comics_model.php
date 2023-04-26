@@ -101,5 +101,21 @@ function addComics($title, $reference, $author, $publisher, $description, $forma
     }
     header('Location: index_listarCategory.php');
 }
+
+/**
+ * función para buscar un comics
+ */
+function getIdComics($id) {
+    $dbh = getConnection();
+
+    try {
+        $query = ('SELECT * FROM comics WHERE id = ?');
+        $stmt = $dbh->prepare($query);
+        $stmt -> execute(array($id));
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+    return $comic = $stmt->fetch(); //metemos en la variable comics array  asociativo
+}
 ?>
 

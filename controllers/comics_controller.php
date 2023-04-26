@@ -41,16 +41,16 @@ function deleteComic() {
 
 function ver() {
     if (!isset ($_GET ['id']))
-        die("No has especificado un identificador de products");
+        die("No has especificado un identificador de factura");
     $id = $_GET ['id'];
     //Incluimos el modelo correspondiente
-    require 'models/comics_model.php';
-    //Le pedimos al modelo el comic con id = $id
-    $comic = getComics($id);
+    require_once 'models/comics_model.php';
+    //Le pedimos al modelo la factura con id = $id
+    $comic = getIdComics($id);
     if ($comic == null)
-        die('Identificador del comic incorrecto');
+        die('Identificador de factura incorrecto');
     //Pasamos a la vista toda la informacion que se desea representar
-    include 'views/products_ver.php';
+    include 'views/comics_detalle_view.php';
 }
 
 function registar(){

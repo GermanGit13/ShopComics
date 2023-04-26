@@ -4,7 +4,6 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
 <body>
 
 <div class="row">
-    <?php foreach ($comics as $comic): ?>
     <div class="col-sm-6">
         <!-- Div para crear una separación-->
         <div class="card-header py-3">
@@ -24,7 +23,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
                     <p class="card-text"><th>Páginas:</th> <?php echo $comic['page'] ?></p>
                     <p class="card-text"><th>Precio:</th> <?php echo $comic['price'] ?><th>€</th></p>
                     <p class="card-text"><th>Referencia:</th> <?php echo $comic['reference'] ?></p>
-                    <a href="./index_detalleComics.php?id=<?php echo $comic['id'] ?>"  class="btn btn-primary">Detalles</a>
+                    <p class="card-text"><th>Categoria:</th> <?php echo $comic['idCategory'] ?></p>
                     <?php if ($_SESSION['rol'] == "admin"): ?>
 <!--                    <a href="" class="btn btn-warning">Modificar</a>-->
                     <a href="./index_deleteComics.php?id=<?php echo $comic['id'] ?>" onclick="return confirm('¿Realmente desea eliminar?')" class="btn btn-danger">Eliminar</a>
@@ -33,7 +32,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
             </div>
         </div>
     </div>
-    <?php endforeach; ?>
+
 </div>
 
 
