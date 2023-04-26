@@ -1,7 +1,7 @@
 <?php
 //La carpeta donde buscaremos los controladores
 //define: se usa para definir una constante en tiempo de ejecucion
-//const: se usa para definirla en tiempo que se declara1
+//const: se usa para definirla en tiempo que se declara
 //preferible usar define
 define('CONTROLLERS_FOLDER', 'controllers/');
 
@@ -9,7 +9,7 @@ define('CONTROLLERS_FOLDER', 'controllers/');
 define('DEFAULT_CONTROLLER', 'users');
 
 // si no se indica una acción, esta acción será la que usará
-define('DEFAULT_ACTION', 'login');
+define('DEFAULT_ACTION', 'registar');
 
 //Obtenemos el controlador
 //si el usuario no lo introduce, seleccionamos el de por defecto

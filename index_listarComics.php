@@ -1,15 +1,16 @@
 <?php
+session_start(); //Iniciamos la sesión para luego recuperarla desde las view
 //La carpeta donde buscaremos los controladores
 //define: se usa para definir una constante en tiempo de ejecucion
-//const: se usa para definirla en tiempo que se declara1
+//const: se usa para definirla en tiempo que se declara
 //preferible usar define
 define('CONTROLLERS_FOLDER', 'controllers/');
 
 // si no se indica un controlador, este es el controlador que usará
-define('DEFAULT_CONTROLLER', 'users');
+define('DEFAULT_CONTROLLER', 'comics');
 
 // si no se indica una acción, esta acción será la que usará
-define('DEFAULT_ACTION', 'login');
+define('DEFAULT_ACTION', 'listar');
 
 //Obtenemos el controlador
 //si el usuario no lo introduce, seleccionamos el de por defecto
