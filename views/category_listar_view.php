@@ -1,5 +1,6 @@
 <?php
 include 'views/header_shop.php'; //se lo pasamos a la vista especifica
+
 ?>
 <body>
 <h5 class="card-title"><th>Sección:</th> Entra en una categoría para ver todos sus comics</h5>
@@ -20,7 +21,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
                     <a href="./index_listarComicsCategory.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-primary">Ver Comics</a>
                     <?php if ($_SESSION['rol'] == "admin"): ?>
                     <a href="./index_comics_registar.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-warning">Añadir Comics</a>
-<!--                    <a href="#" class="btn btn-danger">Eliminar</a>-->
+                    <a href="./index_deleteCategory.php?id=<?php echo $category['id'] ?>" onclick="return confirm('¿Realmente desea eliminar?')" class="btn btn-danger">Eliminar</a>
                     <?php endif; ?>
                 </div>
             </div>

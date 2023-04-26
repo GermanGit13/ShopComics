@@ -36,24 +36,19 @@ function addCategory($category, $img) {
 }
 
 /**
- * función para buscar una categoria
+ * Función para borrar category por id
  */
-//function getIdCategory($idCategory) {
-//    $dbh = getConnection();
-//
-//    try {
-////        $stmt = $dbh->prepare("SELECT * FROM category WHERE id=:id"); //Buscamos por usuario
-////        $stmt->bindParam(':id', $idCategory, PDO::PARAM_STR);
-////        $stmt->execute();
-////        $OneIdCategory = $stmt->fetch(PDO::FETCH_ASSOC); //metemos en la variable OneIdCategory array  asociativo
-//        $query = ('SELECT * FROM category WHERE idCategory = ?');
-//        $stmt = $dbh->prepare($query);
-//        $stmt -> execute(array($idCategory));
-//    } catch (PDOException $e) {
-//        echo "ERROR: " . $e->getMessage();
-//    }
-//    return $OneIdCategory = $stmt->fetchAll(PDO::FETCH_ASSOC); //metemos en la variable comics array  asociativo
-//}
+function deleteCategory($idCategory) {
+    $db = getConnection();
 
+    try {
+        $stmt = $db->prepare("DELETE FROM category WHERE id=:id"); //Buscamos por usuario
+        $stmt->bindParam(':id', $idCategory, PDO::PARAM_STR);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+    header("Location: index_listarCategory.php");
+}
 ?>
 

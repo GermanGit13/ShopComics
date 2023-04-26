@@ -34,5 +34,17 @@ function registarCategory(){
     }
 }
 
+function delete() {
+    if (!isset ($_GET['id']))
+        die("No has especificado un identificador de categoria");
+//        echo "<script>alert('No has especificado un identificador de categoria');</script>";
+    $idCategory = $_GET['id'];
 
+    //Se incluye el modelo que corresponde
+    require_once 'models/category_model.php';
+    //Le pide al modelo todos los comics
+    $category = deleteCategory($idCategory); //funcion creada dentro de comics_model.php
+    //Pasa a la vista toda la informacion que se desea representar
+    include 'views/category_listar_view.php'; //se lo pasamos a la vista especifica
+}
 ?>
