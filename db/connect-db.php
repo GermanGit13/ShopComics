@@ -3,7 +3,7 @@
 //Creamos una funcion para conectarnos a la BBDD con los parametros y devolvemos la conexion
 function getConnection() {
 
-    $dbname = "shopcomics";
+    $dbname = "shop";
     $user = "root";
     $password = "";
     $server = 'localhost';

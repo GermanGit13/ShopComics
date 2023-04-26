@@ -32,7 +32,7 @@ function addCategory($category, $img) {
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }
-    return $category = $result->fetchAll(PDO::FETCH_ASSOC); //metemos en la variable comics array  asociativo
+    header('Location: index_listarCategory.php');
 }
 
 /**

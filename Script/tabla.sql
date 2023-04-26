@@ -1,5 +1,5 @@
 -- Crear tabla Users --
-CREATE TABLE `shopcomics`.`users` (
+CREATE TABLE `shop`.`users` (
 `id` INT(9) NOT NULL auto_increment,
 `username` VARCHAR(16) NOT NULL unique,
 `rol` VARCHAR(5) NOT NULL DEFAULT 'users',
@@ -11,14 +11,15 @@ PRIMARY KEY (`id`)
 ALTER TABLE `users` ADD PRIMARY KEY(`id`);
 
 -- Crear tabla Category --
-CREATE TABLE `shopcomics`.`category` (
+CREATE TABLE `shop`.`category` (
 `id` INT NOT NULL auto_increment,
 `category` VARCHAR(32) NULL ,
+`img` VARCHAR(256) NULL ,
 PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 -- Crear tabla Comics --
-CREATE TABLE `shopcomics`.`comics` (
+CREATE TABLE `shop`.`comics` (
 `id` INT NOT NULL auto_increment,
 `title` VARCHAR(64) NOT NULL , 
 `reference` VARCHAR(16) NOT NULL , 
@@ -27,23 +28,24 @@ CREATE TABLE `shopcomics`.`comics` (
 `description` VARCHAR(128) NULL , 
 `formate` VARCHAR(16) NULL , 
 `page` INT NULL , 
-`price` DOUBLE NULL , 
-`idCategory` INT NOT NULL , 
+`price` DOUBLE NULL ,
+`img` VARCHAR(256) NULL ,
+`idCategory` INT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-ALTER TABLE comics ADD FOREIGN KEY (idCategory) REFERENCES category (id) ON DELETE SET NULL;
+ALTER TABLE shop.comics ADD FOREIGN KEY (idCategory) REFERENCES category (id) ON DELETE SET NULL;
 
 -- Crear tabla Facturas --
-CREATE TABLE `shopcomics`.`facturas` (
+CREATE TABLE `shop`.`facturas` (
 `id` INT NOT NULL auto_increment,
 `fecha` DATE NOT NULL ,
 `numero` VARCHAR(16) NOT NULL ,
 `cantidad` INT NOT NULL ,
 `importe` DOUBLE NOT NULL ,
 `total` DOUBLE NOT NULL ,
-`idComics` INT NOT NULL ,
-`idUsers` INT NOT NULL ,
+`idComics` INT NULL ,
+`idUsers` INT NULL ,
 PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -59,7 +61,7 @@ INSERT INTO category (category, img) VALUES('Manga', 'http://mangamax.tinymanga.
 --Carga de Comics --
 INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('Lobezno 1: Honor', 'MARVEL-7899', 'Frank Miller, Chris Claremont', 'Panini Comics', 'Lobezno viaja a Japón para encontrarse con el amor de su vida. ¡Y con los asesinos de La Mano!', 'Tapa dura', '112', '14.25', 'https://tienda.tomosygrapas.com/48114-large_default/marvel-must-have-lobezno-honor.jpg', '1');
 INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('Marvel Omnibus 1. Magneto de Cullen Bunn y G. Hernández Walta', 'MARVEL-7999', 'Gabriel Hernández', 'Panini Comics', 'El que fuera considerado el mutante más peligroso del planeta ya no es el hombre que todos conocimos', 'Tapa dura', '468', '47.50', 'https://tienda.tomosygrapas.com/53286-large_default/magneto-de-cullen-bunn-y-g-hernandez-walta-marvel-omnibus.jpg', '1');
-INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('MARVEL GALLERY EDITION 01: LOBEZNO: ARMA X', 'MARVEL-78199', 'Frank Miller, Chris Claremont', 'Panini Comics', 'Lobezno viaja a Japón para encontrarse con el amor de su vida. ¡Y con los asesinos de La Mano!', 'Tapa dura', '112', '14.25', 'https://tienda.tomosygrapas.com/es/marvel-comics/31204-marvel-gallery-edition-01-lobezno-arma-x.html', '1');
+INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('MARVEL GALLERY EDITION 01: LOBEZNO: ARMA X', 'MARVEL-78199', 'Frank Miller, Chris Claremont', 'Panini Comics', 'Lobezno viaja a Japón para encontrarse con el amor de su vida. ¡Y con los asesinos de La Mano!', 'Tapa dura', '112', '14.25', 'https://tienda.tomosygrapas.com/55001-large_default/marvel-gallery-edition-01-lobezno-arma-x.jpg', '1');
 INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('MARVEL MUST-HAVE: MAGNETO: TESTAMENTO', 'MARVEL-9999', 'Gabriel Hernández', 'Panini Comics', 'El que fuera considerado el mutante más peligroso del planeta ya no es el hombre que todos conocimos', 'Tapa dura', '468', '47.50', 'https://tienda.tomosygrapas.com/54783-large_default/marvel-must-have-magneto-testamento.jpg', '1');
 
 INSERT INTO comics (title, reference, author, publisher, description, formate, page, price, img, idCategory) VALUES('UNIVERSO SANDMAN: JOHN CONSTANTINE HELLBLAZER INTEGRAL', 'MARVEL-7899', 'Frank Miller, Chris Claremont', 'Panini Comics', 'Lobezno viaja a Japón para encontrarse con el amor de su vida. ¡Y con los asesinos de La Mano!', 'Tapa dura', '112', '14.25', 'https://tienda.tomosygrapas.com/54882-large_default/universo-sandman-john-constantine-hellblazer-integral.jpg', '2');

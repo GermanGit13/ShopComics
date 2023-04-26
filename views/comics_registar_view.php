@@ -1,13 +1,14 @@
 <?php
 include 'views/header.php'; //se lo pasamos a la vista especifica
-include 'db/connect-dbCategory.php'; //incluimos los datos de conexion
+//include 'db/connect-dbCategory.php'; //incluimos los datos de conexion
 if (!isset ($_GET ['idCategory']))
     die("No se ha seleccionado ningún id de Category");
 $idCategoria = $_GET['idCategory'];
-$dbh = getConnectionIdCategory();
-$consulta = $dbh->prepare("SELECT * FROM category WHERE id=$idCategoria"); //buscamos por id
-$consulta->execute();
-$OneIdCategory = $consulta->fetch();
+$category = $_GET['category'];
+//$dbh = getConnectionIdCategory();
+//$consulta = $dbh->prepare("SELECT * FROM category WHERE id=$idCategoria"); //buscamos por id
+//$consulta->execute();
+//$OneIdCategory = $consulta->fetch();
 ?>
 
 <body>
@@ -24,7 +25,8 @@ $OneIdCategory = $consulta->fetch();
                                 <div class="text-center">
                                     <img src="../img/logoSmall.png"
                                          style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics a la catergoria: <?php echo $OneIdCategory['category'] ?></h4>
+                                        <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics a la catergoria: <?php echo $category ?></h4>
+<!--                                    <h4 class="mt-1 mb-5 pb-1">Añadir nuevo comics a la catergoria: --><?php //echo $OneIdCategory['category'] ?><!--</h4>-->
                                 </div>
 
                                 <form method="post" id="formulario">
@@ -65,7 +67,8 @@ $OneIdCategory = $consulta->fetch();
                                         <label class="form-label" for="form2Example11">Url Imagen</label>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input type="text" readonly name="idCategory" class="form-control"  value="<?php echo $OneIdCategory['id'] ?>"/>
+                                        <input type="text" readonly name="idCategory" class="form-control"  value="<?php echo $idCategoria ?>"/>
+<!--                                        <input type="text" readonly name="idCategory" class="form-control"  value="--><?php //echo $OneIdCategory['id'] ?><!--"/>-->
                                         <label class="form-label" for="form2Example11" >Categoria</label>
 
                                     </div>

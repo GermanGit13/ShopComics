@@ -20,7 +20,7 @@ include 'views/header_shop.php'; //se lo pasamos a la vista especifica
                     <h5 class="card-title"><th>Categoría:</th> <?php echo $category['category'] ?></h5>
                     <a href="./index_listarComicsCategory.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-primary">Ver Comics</a>
                     <?php if ($_SESSION['rol'] == "admin"): ?>
-                    <a href="./index_comics_registar.php?idCategory=<?php echo $category['id'] ?>" class="btn btn-warning">Añadir Comics</a>
+                    <a href="./index_comics_registar.php?idCategory=<?php echo $category['id'] ?>&category=<?php echo $category['category'] ?>" class="btn btn-warning">Añadir Comics</a>
                     <a href="./index_deleteCategory.php?id=<?php echo $category['id'] ?>" onclick="return confirm('¿Realmente desea eliminar?')" class="btn btn-danger">Eliminar</a>
                     <?php endif; ?>
                 </div>

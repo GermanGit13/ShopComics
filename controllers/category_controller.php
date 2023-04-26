@@ -12,8 +12,6 @@ function listarCategory() {
 }
 
 function registarCategory(){
-
-
     include('./views/category_registar_view.php');
     // Comprueba si el formulario ha sido enviado.
     // Si se ha enviado, comienza el proceso el formulario y guarda los datos en la BBDD
@@ -28,7 +26,7 @@ function registarCategory(){
             $error = 'ERROR: Por favor, introduce todos los campos requeridos.!';
 
         } else {
-            require_once ('./models/category_model.php');
+            require ('./models/category_model.php');
             $category = addCategory($category, $img);
         }
     }
